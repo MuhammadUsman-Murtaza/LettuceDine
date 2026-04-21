@@ -1,62 +1,46 @@
-import flet as ft
+import streamlit as st
 
-from pages import restaurants
-from pages import order_history
+st.set_page_config(page_title="LettuceDine | Gateway", page_icon="🍱", layout="centered")
 
-def page(page: ft.Page):
-	page.title = "Browse Restaurants!"
+st.markdown("""
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+    html, body, [class*="css"] { font-family: 'Inter', sans-serif; background-color: #050505; color: white; }
+    .stButton>button {
+        background: linear-gradient(135deg, #00E676 0%, #00C853 100%);
+        color: black; border-radius: 12px; font-weight: 800; border: none; height: 3.5rem;
+    }
+</style>
+""", unsafe_allow_html=True)
 
-	pages = [
-		restaurants.new(),
-		order_history.new(),
-		
-	]
- 
-	index = 0
+st.markdown("<h1 style='color: #00E676; text-align: center; font-size: 3.5rem;'>LETTUCEDINE</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; color: #888; margin-top: -20px;'>MARKETPLACE CENTRAL SYSTEM</p>", unsafe_allow_html=True)
 
-	pageArea = ft.Column(
-		alignment=ft.MainAxisAlignment.START,
-		controls=[pages[index]],
-		expand=True
-	)
- 
+st.markdown("<br><br>", unsafe_allow_html=True)
 
-	def rail_changed(e):
-		index = e.control.selected_index
-		pageArea.controls = [pages[index]]
-		pageArea.update()
+st.subheader("Select Your Access Portal")
 
-	
+with st.container(border=True):
+    st.markdown("### 🍱 Customer Marketplace")
+    st.write("Browse local vendors, purchase masterpieces, and track deliveries.")
+    if st.button("Enter Marketplace", width="stretch"):
+        st.info("In Production: You would now be redirected to https://market.lettucedine.com")
+        st.caption("Local Test: Run 'streamlit run src/app_customer.py'")
 
-	page.add(
-		ft.Row(
-			[
-				ft.NavigationRail(
-					min_width=100,
-					selected_index=index,
-					
-					destinations=[
-						ft.NavigationRailDestination(
-							icon=ft.Icons.RESTAURANT_OUTLINED,
-							selected_icon=ft.Icons.RESTAURANT,
-							label="Restaurants"
-						),
-						ft.NavigationRailDestination(
-							icon=ft.Icons.HISTORY_OUTLINED,
-							selected_icon=ft.Icons.HISTORY,
-							label="Order History"
-						),
-					],
-     
-					on_change=rail_changed,
-				),
-    
-				ft.VerticalDivider(width=1),
-				pageArea,
-			],
-			expand=True,
-		)
-	)
+st.markdown("<br>", unsafe_allow_html=True)
 
+with st.container(border=True):
+    st.markdown("### 🥘 Vendor Hub")
+    st.write("Manage your restaurant operations, fulfillment, and menu inventory.")
+    if st.button("Enter Vendor Portal", width="stretch", key="vend"):
+        st.info("In Production: You would now be redirected to https://vendor.lettucedine.com")
+        st.caption("Local Test: Run 'streamlit run src/app_vendor.py'")
 
-ft.run(page)
+st.markdown("<br>", unsafe_allow_html=True)
+
+with st.container(border=True):
+    st.markdown("### 🛡️ System Administration")
+    st.write("Secure internal tools for marketplace oversight and global auditing.")
+    if st.button("Enter Admin Command", width="stretch", key="admin"):
+        st.info("In Production: Authorization Required.")
+        st.caption("Local Test: Run 'streamlit run src/app_admin.py'")

@@ -1,71 +1,35 @@
-# LettuceDine
+# LettuceDine | Premium Food Marketplace
 
-A Marketplace for Potential Customers and Vendors of Eateries (Food Installments)
+A sophisticated marketplace for food enthusiasts and vendors, now powered by **Streamlit** for a seamless, stable, and high-performance experience.
 
-## Run the app
+## 🚀 Getting Started
 
-### uv
+### 1. Prerequisites
+Ensure you have Python 3.9+ installed and a PostgreSQL instance running.
 
-Run as a desktop app:
-
+### 2. Environment Setup
+Install the necessary dependencies:
 ```bash
-uv run flet run
+pip install -r requirements.txt
 ```
 
-Run as a web app:
-
+### 3. Database Initialization
+Seed the database with high-quality demonstration data:
 ```bash
-uv run flet run --web
+python src/seed.py
 ```
 
-For more details on running the app, refer to the [Getting Started Guide](https://flet.dev/docs/).
-
-## Build the app
-
-### Android
-
+### 4. Run the Application
+Start the premium food delivery platform:
 ```bash
-flet build apk -v
+streamlit run src/main.py
 ```
 
-For more details on building and signing `.apk` or `.aab`, refer to the [Android Packaging Guide](https://flet.dev/docs/publish/android/).
+## 🏗️ Architecture
+- **Frontend**: Streamlit (Responsive & Reactive)
+- **Backend Services**: SQLAlchemy (ORM)
+- **Database**: PostgreSQL
+- **Design Language**: Royal Black & Toxic Lime
 
-### iOS
-
-```bash
-flet build ipa -v
-```
-
-For more details on building and signing `.ipa`, refer to the [iOS Packaging Guide](https://flet.dev/docs/publish/ios/).
-
-### macOS
-
-```bash
-flet build macos -v
-```
-
-For more details on building macOS package, refer to the [macOS Packaging Guide](https://flet.dev/docs/publish/macos/).
-
-### Linux
-
-```bash
-flet build linux -v
-```
-
-For more details on building Linux package, refer to the [Linux Packaging Guide](https://flet.dev/docs/publish/linux/).
-
-### Windows
-
-```bash
-flet build windows -v
-```
-
-For more details on building Windows package, refer to the [Windows Packaging Guide](https://flet.dev/docs/publish/windows/).
-
-### Web
-
-```bash
-flet build web -v
-```
-
-For more details on building Web app, refer to the [Web Packaging Guide](https://flet.dev/docs/publish/web/).
+---
+*LettuceDine — Reimagined for Speed.*
