@@ -1,0 +1,5 @@
+streamlit
+sqlalchemy
+pg8000
+pandas
+pillow
